@@ -11,8 +11,6 @@ from PIL import Image
 from datetime import datetime
 from streamlit_cropper import st_cropper
 import streamlit.components.v1 as html
-from st_aggrid import AgGrid
-import plotly.express as px
 import io
 import sqlite3
 import cv2
