@@ -13,7 +13,7 @@ from streamlit_cropper import st_cropper
 import streamlit.components.v1 as html
 import io
 import sqlite3
-import cv2
+
 
 import numpy as np
 from PIL import Image as im
