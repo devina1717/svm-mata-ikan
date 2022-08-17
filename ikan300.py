@@ -77,7 +77,7 @@ choice = st.sidebar.selectbox('Login', ['Admin', 'User'])
 # Path
 path_grafik = r"./Img/graph.jpg"
 path_ikan_jpg = r"./Img/ket_ikan.jpg"
-path_model = r"./300px.p" #Edit / ganti file model
+path_model = "./64px.p" #Edit / ganti file model
 
 
 # App
@@ -113,10 +113,10 @@ if choice == 'Admin':
                 st.markdown(
                     "<h1 style='text-align: center; color: black;'>Informasi Dataset dan Model</h1>", unsafe_allow_html=True)
                 st.markdown('Grafik dibawah ini menunjukkan jumlah dataset yang digunakan per kategori, untuk melakukan proses training')
-                imagefeed = Image.open(path_grafik)
+                #st.image(path_grafik)
                 col1, col2, col3 = st.columns(3) 
                 with col1: st.write(' ') 
-                with col2: st.image(imagefeed, caption='Grafik Dataset')
+                with col2: st.image(path_grafik, caption='Grafik Dataset')
                 with col3: st.write(' ')
                 #st.image(imagefeed, caption='Grafik Dataset')
                 # Model
@@ -223,7 +223,7 @@ if choice == 'Admin':
                     st.write('Hasil...')
                     flat_data = []
                     img = np.array(cropped_img)
-                    img_resized= resize(img, (300,300,3))#tanpa feature extraction
+                    img_resized= resize(img, (64,64,3))#tanpa feature extraction
                     # hsvImage = cv2.cvtColor(img, cv2.COLOR_BGR2HSV) #feature extraction hsv
                     # img_resized = resize(hsvImage, (100, 100, 3))
                     flat_data.append(img_resized.flatten())
@@ -277,7 +277,7 @@ if choice == 'Admin':
                     st.write('Hasil...')
                     flat_data = []
                     img = np.array(cropped_img)
-                    img_resized = resize(img, (300, 300, 3))# tanpa feature extraction
+                    img_resized = resize(img, (64, 64, 3))# tanpa feature extraction
                     # hsvImage = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)#feature extraction hsv
                     # img_resized = resize(hsvImage, (100, 100, 3))
                     flat_data.append(img_resized.flatten())
@@ -383,7 +383,7 @@ if choice == 'User':
             st.write('Hasil...')
             flat_data = []
             img = np.array(cropped_img)
-            img_resized = resize(img, (300, 300, 3))
+            img_resized = resize(img, (64, 64, 3))
             # hsvImage = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)#feature extraction hsv
             # img_resized = resize(hsvImage, (100, 100, 3))
             # Hapus tanda # untuk menampilkan nilai HSV
@@ -447,7 +447,7 @@ if choice == 'User':
             st.write('Hasil...')
             flat_data = []
             img = np.array(cropped_img)
-            img_resized = resize(img, (300, 300, 3))
+            img_resized = resize(img, (64, 64, 3))
             # hsvImage = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)#feature extraction hsv
             # img_resized = resize(hsvImage, (100, 100, 3))
             flat_data.append(img_resized.flatten())
@@ -530,4 +530,3 @@ if choice == 'User':
         st.markdown('f.	Selanjutnya pada bagian hasil, hasil prediksi akan tampil berupa teks : Segar, Kurang Segar, Tidak Segar, dan Busuk. Pada bagian ini juga akan menampilkan tingkat presentase prediksi per kategori tingkat kesegaran ikan.')
         st.markdown('5.	Dataset')
         st.markdown('Pada bagian ini pengguna dapat melihat dataset yang digunakan untuk membuat model pada sistem ini. Silahkan klik button Lihat untuk memunculkan link yang akan mengalihkan Anda ke Drive yang berisi dataset.')
-
